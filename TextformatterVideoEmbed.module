@@ -510,7 +510,7 @@ class TextformatterVideoEmbed extends Textformatter implements ConfigurableModul
 
 		if(strpos($str, '://vimeo.com/') === false) return;
 
-		if(!preg_match_all('#<(?:p|h[1-6])(?:>|\s+[^>]+>)\s*(https?://vimeo.com/(?:[^<]*?/|)(\d+)).*?</(?:p|h[1-6])>#', $str, $matches)) return;
+		if(!preg_match_all('#<(?:p|h[1-6])(?:>|\s+[^>]+>)\s*(https?://vimeo.com/(?:[^<]*/|)([a-fA-F0-9]+)).*?</(?:p|h[1-6])>#', $str, $matches)) return;
 
 		foreach($matches[0] as $key => $line) {
 			$videoID = $matches[2][$key];
